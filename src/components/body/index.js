@@ -21,8 +21,8 @@ export default function Body() {
 //     const getProducts = () =>
 //     axios.get('https://laravelapi1.azurewebsites.net/api/products')
 //         .then(products => {
-//             setProducts(products.data)
-//             setFilteredProduct(products.data)
+//             setProducts(products.data.data)
+//             setFilteredProduct(products.data.data)
 // }).catch(err => console.log(err))
 
 
