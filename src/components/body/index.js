@@ -23,8 +23,12 @@ export default function Body() {
         .then(products => {
             setProducts(products.data.data)
             setFilteredProduct(products.data.data)
+        setLoad(false)
+
 }).catch(err => console.log(err))
 
+  //Hooks for loader
+  const [load, setLoad] = useState(true)
 
     //Hooks for products
     const [products, setProducts] = useState([])
@@ -39,6 +43,8 @@ export default function Body() {
         getProducts()
     }, [])
     console.log('data', products)
+    console.log('load', load)
+
 
 
     //Initialize items in cart
@@ -167,6 +173,7 @@ export default function Body() {
             onConfirm={hidelert}>
             </SweetAlert>}
             <NavBar remove={removeItem} showNav={showNav} displayNav={displayNav} increment={increment} decrement={decrement} number={cartItems.length} items={filteredProduct.filter(product => isInCart(product.id)).map(product => addCountToProduct(product))} />
+        
             <div className="container py-5">
                 <div className="row">
                     <div className="col-md-6">
@@ -176,8 +183,8 @@ export default function Body() {
                     </div>
                 </div>
             </div>
-            <div className="grey-bg">
-                <div className="container-fluid py-5">
+            <div style={{textAlign:'center'}} className="grey-bg">
+            { load ? <div>Loading....</div> : <div className="container-fluid py-5">
                     <div className="row">
                         {filteredProduct.map((item) => {
             
@@ -201,8 +208,11 @@ export default function Body() {
                         )}
 
                     </div>
-                </div>
+                </div>}
             </div>
+          
+           
+             
          {alert &&  <div className={{position: "fixed"}}>
             <Alert color="primary">
             This is a primary alert — check it out!
