@@ -1,3 +1,3 @@
 export const formattedCurrency = (amount) => {
-   return amount
+   return Math.ceil(amount)
 }
