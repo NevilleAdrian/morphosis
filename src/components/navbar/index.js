@@ -112,15 +112,16 @@ export default function NavBar({ number = 0, items, increment, decrement, displa
                                          <p className="float-md-left">Subtotal</p>
                                      </div>
                                      <div className="col-md-6">
-                                         <p className="float-md-right">£{formattedCurrency(calculateItems)}</p>
+                                         <p className="float-md-right $">£{formattedCurrency(calculateItems)}</p>
                                      </div>
                                  </div>
                              </div>
                          </div>
                     
                          <div className="pt-4">
-                             <button className="button-solid">
-                                 PROCEED TO CHECKOUT
+                         <button className="button-solid">
+                         <a style={{color: "white"}} href={'https://dropinbutton-sandbox.vpay.africa/service/pay?amount='+ calculateItems + '&domain=sandbox&key=fdcdb195-6553-4890-844c-ee576b7ea715&transactionref=a4b2-133klklj43ddd445-%2078da&customer_service_channel=support@vpay.africa,%20+2348191000800&txn_charge_type=percentage&txn_charge=1.5'}>
+                                 PROCEED TO CHECKOUT</a> 
                           </button>
                          </div>
                      </div>

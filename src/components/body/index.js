@@ -11,21 +11,22 @@ export default function Body() {
 
 
     //Retrieve products from Robot api
-    // const getProducts = () =>
-    //     axios.get('http://localhost:8000/api/robots')
-    //         .then(products => {
-    //             setProducts(products.data.data)
-    //             setFilteredProduct(products.data.data)
-    // }).catch(err => console.log(err))
-
     const getProducts = () =>
-    axios.get('https://laravelapi1.azurewebsites.net/api/products')
-        .then(products => {
-            setProducts(products.data.data)
-            setFilteredProduct(products.data.data)
-        setLoad(false)
+        axios.get('http://localhost:8000/api/robots')
+            .then(products => {
+                setProducts(products.data.data)
+                setFilteredProduct(products.data.data)
+                setLoad(false)
+    }).catch(err => console.log(err))
 
-}).catch(err => console.log(err))
+//     const getProducts = () =>
+//     axios.get('https://laravelapi1.azurewebsites.net/api/products')
+//         .then(products => {
+//             setProducts(products.data.data)
+//             setFilteredProduct(products.data.data)
+//         setLoad(false)
+
+// }).catch(err => console.log(err))
 
   //Hooks for loader
   const [load, setLoad] = useState(true)
@@ -183,7 +184,7 @@ export default function Body() {
                     </div>
                 </div>
             </div>
-            <div style={{textAlign:'center'}} className="grey-bg">
+            <div style={{textAlign:'capitalize'}} className="grey-bg">
             { load ? <div>Loading....</div> : <div className="container-fluid py-5">
                     <div className="row">
                         {filteredProduct.map((item) => {
