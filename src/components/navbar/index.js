@@ -4,7 +4,6 @@ import Logo from "../../assets/images/logo-black.png"
 import Cart from "../../assets/images/cart.png"
 import Arrow from "../../assets/images/left-arrow.png"
 import X from "../../assets/images/x.png"
-import { useSelector, useDispatch } from 'react-redux'
 import { formattedCurrency } from '../../utils'
 
 
