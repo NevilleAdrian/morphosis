@@ -11,19 +11,19 @@ export default function Body() {
 
 
     //Retrieve products from Robot api
-    const getProducts = () =>
-        axios.get('http://localhost:8000/api/robots')
-            .then(products => {
-                setProducts(products.data.data)
-                setFilteredProduct(products.data.data)
-    }).catch(err => console.log(err))
+    // const getProducts = () =>
+    //     axios.get('http://localhost:8000/api/robots')
+    //         .then(products => {
+    //             setProducts(products.data.data)
+    //             setFilteredProduct(products.data.data)
+    // }).catch(err => console.log(err))
 
-//     const getProducts = () =>
-//     axios.get('https://laravelapi1.azurewebsites.net/api/products')
-//         .then(products => {
-//             setProducts(products.data.data)
-//             setFilteredProduct(products.data.data)
-// }).catch(err => console.log(err))
+    const getProducts = () =>
+    axios.get('https://laravelapi1.azurewebsites.net/api/products')
+        .then(products => {
+            setProducts(products.data.data)
+            setFilteredProduct(products.data.data)
+}).catch(err => console.log(err))
 
 
     //Hooks for products
@@ -153,7 +153,7 @@ export default function Body() {
       let result = []
       console.log(value)
       result = products.filter((data) => {
-          return data.material.toLowerCase().search(value) != -1;
+          return data.name.toLowerCase().search(value) != -1;
       })
       setFilteredProduct(result);
      }
@@ -186,10 +186,10 @@ export default function Body() {
                                 <img alt="product-img" className="img-fluid img-height" src={item.image} />
                             </div>
 
-                            <p className="text-center title">{item.name}</p>
-                            <p className="text-center"><span>From</span> ฿{item.price}</p>
+                            <p style={{textTransform:'capitalize'}}  className="text-center title">{item.name}</p>
+                            <p className="text-center"><span>From</span> £{item.price}</p>
                             <p className="text-center title">Stock: {item.stock}</p>
-                            <p className="text-center title">Material: {item.material}</p>
+                            {/* <p className="text-center title">Material: {item.material}</p> */}
               
                             <p className="text-center title">{dateFormat(item.createdAt, "dS mmmm, yyyy")}</p>
                             

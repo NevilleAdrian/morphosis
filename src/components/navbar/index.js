@@ -95,7 +95,7 @@ export default function NavBar({ number = 0, items, increment, decrement, displa
                                              </form>
                                          </div>
                                          <div className="col-md-5 pt-5 ">
-                                             <p className="price">฿{formattedCurrency(item.price * item.count)}</p>
+                                             <p className="price">£ {formattedCurrency(item.price * item.count)}</p>
                                          </div>
                                          <div className="col-md-3">
                                              <img alt="cancel" className="img-fluid url-image float-md-left" src={item.image} />
@@ -113,7 +113,7 @@ export default function NavBar({ number = 0, items, increment, decrement, displa
                                          <p className="float-md-left">Subtotal</p>
                                      </div>
                                      <div className="col-md-6">
-                                         <p className="float-md-right">฿{formattedCurrency(calculateItems)}</p>
+                                         <p className="float-md-right">£{formattedCurrency(calculateItems)}</p>
                                      </div>
                                  </div>
                              </div>
