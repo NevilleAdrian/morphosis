@@ -11,22 +11,22 @@ export default function Body() {
 
 
     //Retrieve products from Robot api
+    // const getProducts = () =>
+    //     axios.get('http://localhost:8000/api/robots')
+    //         .then(products => {
+    //             setProducts(products.data.data)
+    //             setFilteredProduct(products.data.data)
+    //             setLoad(false)
+    // }).catch(err => console.log(err))
+
     const getProducts = () =>
-        axios.get('http://localhost:8000/api/robots')
-            .then(products => {
-                setProducts(products.data.data)
-                setFilteredProduct(products.data.data)
-                setLoad(false)
-    }).catch(err => console.log(err))
+    axios.get('https://laravelapi1.azurewebsites.net/api/products')
+        .then(products => {
+            setProducts(products.data.data)
+            setFilteredProduct(products.data.data)
+        setLoad(false)
 
-//     const getProducts = () =>
-//     axios.get('https://laravelapi1.azurewebsites.net/api/products')
-//         .then(products => {
-//             setProducts(products.data.data)
-//             setFilteredProduct(products.data.data)
-//         setLoad(false)
-
-// }).catch(err => console.log(err))
+}).catch(err => console.log(err))
 
   //Hooks for loader
   const [load, setLoad] = useState(true)
